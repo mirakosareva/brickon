@@ -17,7 +17,7 @@
     <!-- @vite(['resources/css/app.css', 'resources/js/app.js'])
     
     @stack('styles') -->
-
+    
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
         tailwind.config = {
@@ -30,148 +30,10 @@
             }
         }
     </script>
-    <style>
-        /* Сетка для товаров - 3 колонки */
-        .lego-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-            gap: 2rem;
-        }
-
-        /* Для больших экранов - максимум 3 колонки */
-        @media (min-width: 1024px) {
-            .lego-grid {
-                grid-template-columns: repeat(3, 1fr);
-            }
-        }
-
-        /* Карточка товара */
-        .product-card {
-            background: white;
-            border-radius: 1rem;
-            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
-            overflow: hidden;
-            transition: all 0.3s;
-        }
-
-        .product-card:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
-        }
-
-        /* Категория-плитка */
-        .category-tile {
-            position: relative;
-            overflow: hidden;
-            border-radius: 1rem;
-            transition: all 0.3s;
-            cursor: pointer;
-        }
-
-        .category-tile:hover {
-            transform: scale(1.02);
-            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
-        }
-
-        /* Кнопки */
-        .btn-primary {
-            background-color: #E3002B;
-            color: white;
-            padding: 0.75rem 2rem;
-            border-radius: 9999px;
-            font-weight: 600;
-            transition: all 0.3s;
-            display: inline-block;
-        }
-
-        .btn-primary:hover {
-            background-color: #b80022;
-            transform: translateY(-2px);
-            box-shadow: 0 5px 15px rgba(227, 0, 43, 0.3);
-        }
-
-        .btn-secondary {
-            border: 2px solid #E3002B;
-            color: #E3002B;
-            background: transparent;
-            padding: 0.5rem 1.5rem;
-            border-radius: 9999px;
-            font-weight: 600;
-            transition: all 0.3s;
-            display: inline-block;
-        }
-
-        .btn-secondary:hover {
-            background-color: #E3002B;
-            color: white;
-        }
-
-        /* Анимации */
-        .fade-up {
-            animation: slideUp 0.6s ease-out forwards;
-            opacity: 0;
-        }
-
-        .delay-100 {
-            animation-delay: 0.1s;
-        }
-
-        .delay-200 {
-            animation-delay: 0.2s;
-        }
-
-        .delay-300 {
-            animation-delay: 0.3s;
-        }
-
-        @keyframes slideUp {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        @keyframes float {
-
-            0%,
-            100% {
-                transform: translateY(0px);
-            }
-
-            50% {
-                transform: translateY(-10px);
-            }
-        }
-
-        .animate-float {
-            animation: float 3s ease-in-out infinite;
-        }
-
-        /* Ограничение текста */
-        .line-clamp-2 {
-            display: -webkit-box;
-            -webkit-line-clamp: 2;
-            -webkit-box-orient: vertical;
-            overflow: hidden;
-        }
-
-        /* Цвета */
-        .bg-brickon-black {
-            background-color: #1A1A1A;
-        }
-
-        .text-brickon-black {
-            color: #1A1A1A;
-        }
-    </style>
+    <link rel="stylesheet" href="{{ asset('css/style.css') }}">
 </head>
 
-<body class="bg-white">
+<body class="bg-white flex flex-col min-h-screen">
     <nav class="fixed top-0 left-0 right-0 bg-white/95 backdrop-blur-md z-50 border-b border-gray-100 transition-all duration-300">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex justify-between items-center h-16">
@@ -193,12 +55,12 @@
                         <a href="{{ route('catalog') }}" class="text-gray-600 hover:text-brickon-red transition-colors font-medium">
                             Каталог
                         </a>
-                        <!-- <a href="{{ route('catalog') }}?sort=popular" class="text-gray-600 hover:text-brickon-red transition-colors font-medium">
+                        <a href="#recommend" class="text-gray-600 hover:text-brickon-red transition-colors font-medium">
                             Популярное
                         </a>
-                        <a href="{{ route('catalog') }}?sort=new" class="text-gray-600 hover:text-brickon-red transition-colors font-medium">
+                        <a href="#new" class="text-gray-600 hover:text-brickon-red transition-colors font-medium">
                             Новинки
-                        </a> -->
+                        </a>
                     </div>
                 </div>
                 <div class="flex items-center space-x-4">
@@ -325,11 +187,11 @@
     </div>
     @endif
 
-    <main>
+    <main class="flex-grow">
         @yield('content')
     </main>
 
-    <footer class="bg-brickon-black text-white mt-5 py-5">
+    <footer class="bg-brickon-black text-white mt-5 py-5 flex-shrink-0">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
                 <div>

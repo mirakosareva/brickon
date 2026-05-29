@@ -88,7 +88,7 @@
             <div class="text-center mb-12">
                 <div class="inline-flex items-center space-x-2 bg-brickon-red/10 text-brickon-red px-4 py-2 rounded-full mb-4">
                     <i class="fas fa-star"></i>
-                    <span class="text-sm font-medium">Рекомендуем</span>
+                    <span class="text-sm font-medium" id="recommend">Рекомендуем</span>
                 </div>
                 <h2 class="text-3xl md:text-4xl font-bold mb-4">Популярные наборы</h2>
                 <p class="text-xl text-gray-600 max-w-2xl mx-auto">
@@ -173,7 +173,7 @@
         <div class="text-center mb-12">
             <div class="inline-flex items-center space-x-2 bg-brickon-red/10 text-brickon-red px-4 py-2 rounded-full mb-4">
                 <i class="fas fa-gem"></i>
-                <span class="text-sm font-medium">Только что появились</span>
+                <span class="text-sm font-medium" id="new">Только что появились</span>
             </div>
             <h2 class="text-3xl md:text-4xl font-bold mb-4">Новинки коллекций</h2>
             <p class="text-xl text-gray-600 max-w-2xl mx-auto">
